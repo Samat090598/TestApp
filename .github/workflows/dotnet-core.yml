@@ -53,13 +53,11 @@ jobs :
         run: dotnet build --configuration Release --no-restore
       - name: Dotnet Publish
         run: dotnet publish TestApp2 -c Release -o deploy
-      - name: Copy via ssh
-        uses: garygrossgarten/github-action-scp@v0.5.3
+      - name: Run SSH command
+        uses: garygrossgarten/github-action-ssh@v0.3.0
         with:
-          local: /home/runner/work/deferat/deferat/TestApp2/deploy/
-          remote: ${{ secrets.REMOTE_TARGET }} 
+          command: sudo service deferat start
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           privateKey: ${{ secrets.REMOTE_SSH_KEY }}
 
-     
