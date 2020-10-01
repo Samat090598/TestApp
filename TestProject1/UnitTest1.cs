@@ -14,7 +14,7 @@ namespace TestProject1
             
             ViewResult result = controller.Index() as ViewResult;
             
-            Assert.Equal("Hello world!", result?.ViewData["Message"]);
+            Assert.Equal("Hello worl!", result?.ViewData["Message"]);
         }
     }
 }
