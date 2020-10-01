@@ -47,10 +47,10 @@ jobs :
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
+    - name : Build
+      run: dotnet build --configuration Release --no-restore
     - name: Dotnet Publish
-      run: | 
-        ls
-        dotnet publish src -c Release -o deploy
+      run: dotnet publish src -c Release -o deploy
     - name: Copy via ssh
       uses: garygrossgarten/github-action-scp@v0.5.3
       with:
