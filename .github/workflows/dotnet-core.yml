@@ -57,6 +57,7 @@ jobs :
         uses: garygrossgarten/github-action-scp@v0.5.3
         with:
           local: /home/runner/work/deferat/deferat/TestApp2/deploy/
+          remote: ${{ secrets.REMOTE_TARGET }} 
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           privateKey: ${{ secrets.REMOTE_SSH_KEY }}
