@@ -52,9 +52,7 @@ jobs :
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Dotnet Publish
-        run: |
-          ls
-          dotnet publish TestApp2 -c Release -o deploy
+        run: dotnet publish TestApp2 -c Release -o deploy
       - name: Run SSH command
         uses: garygrossgarten/github-action-ssh@v0.3.0
         with:
