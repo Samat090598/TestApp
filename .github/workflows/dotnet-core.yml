@@ -52,6 +52,6 @@ jobs :
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Dotnet Publish
-        run: dotnet publish src -c Release -o deploy
+        run: dotnet publish Starkit -c Release -o deploy
 
      
