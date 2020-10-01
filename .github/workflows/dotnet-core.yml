@@ -48,7 +48,9 @@ jobs :
       with:
         dotnet-version: 3.1.301
     - name: Dotnet Publish
-      run: dotnet publish src -c Release -o deploy
+      run: | 
+        ls
+        dotnet publish src -c Release -o deploy
     - name: Copy via ssh
       uses: garygrossgarten/github-action-scp@v0.5.3
       with:
