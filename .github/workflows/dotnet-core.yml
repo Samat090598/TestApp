@@ -52,12 +52,14 @@ jobs :
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Dotnet Publish
-        run: dotnet publish TestApp2 -c Release -o deploy
+        run: |
+          ls
+          dotnet publish TestApp2 -c Release -o deploy
       - name: Copy via ssh
         uses: garygrossgarten/github-action-scp@v0.5.3
         with:
           remote: ${{ secrets.REMOTE_TARGET }}
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
-          sshKey: ${{ secrets.REMOTE_SSH_KEY }}
+          privateKey: ${{ secrets.REMOTE_SSH_KEY }}
 
